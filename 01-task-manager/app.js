@@ -6,6 +6,7 @@ const taskRouter = require('./routes/tasksRouter');
 const app = express();
 
 // middleware
+app.use(express.static('./public'));
 app.use(morgan('dev'));
 app.use(express.json());
 
