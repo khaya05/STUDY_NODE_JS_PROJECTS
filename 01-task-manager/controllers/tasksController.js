@@ -7,6 +7,7 @@ exports.getAllTasks = async (req, res) => {
     res.status(200).json({
       status: 'success',
       data: {
+        amount:length,
         tasks,
       },
     });
