@@ -1,4 +1,4 @@
-require('dotenv').config({path: './config.env'});
+require('dotenv').config({ path: './config.env' });
 
 const connectDB = require('./db/connect');
 const { Product } = require('./models/product');
@@ -10,10 +10,10 @@ const start = async () => {
     await Product.deleteMany();
     await Product.create(jsonProducts);
     console.log('Success!!');
-    process.exit(0)
+    process.exit(0);
   } catch (error) {
     console.log(error);
-    process.exit(1)
+    process.exit(1);
   }
 };
 
