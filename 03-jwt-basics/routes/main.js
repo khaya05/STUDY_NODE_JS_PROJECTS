@@ -1,10 +1,11 @@
-exports.login = async (req, res) => {
-  res.send('working');
-};
+const express = require('express');
+const { login, dashboard } = require('../controllers/main');
+const authMiddleware = require('../middleware/auth');
 
-exports.dashboard = async (req, res) => {
-  const luckNumber = Math.floor(Math.random() * 99);
-  res
-    .status(200)
-    .json({ msg: `hello, Here is your lucky number ${luckNumber}` });
-};
+const router = express.Router();
+
+router.route('/login').post(login);
+router.route('/dashboard').get(authMiddleware, dashboard);
+
+module.exports = router;
+ 
